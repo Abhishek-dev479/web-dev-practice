@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <p class="navbar-brand">WEATHER.COM</p>
+          </div>
+            <ul class="nav navbar-nav navbar-right">
+              <!-- 6 -->
+              <li id="home"><a href="/">HOME</a></li>
+              <li id="about"><a href="/about">WEATHER</a></li>
+              <li id="contact"><a href="/contact">CONTACT US</a></li>
+            </ul>
+        </div>
+      </nav>
+      <main class="container1">
+    <form action="/" method="post">
+        <input type="text" name="cityName" placeholder="Enter City Name">
+        <button type="submit" class="btn1">Go</button>
+    </form>
+    <div class="box1">
+      <img src="<%= icon %>">
+      <div class="data1">
+      <h2><%= cityName %></h2>
+      <p><%= temp %> C</p>
+      <p><%= description %></p>
+    </div>
+    </div>
+  </main>
+</body>
+</html>
