@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <form action="/" method="post">
+        <img src="https://moviesonmain.org/wp-content/uploads/2017/05/Movies-on-Main-Black.png" alt="logo" id="logo">
+        <input type="number" min="1920" max="2030" id="year" placeholder="year">
+        <input type="text" name="title" placeholder="Enter Movie Name">
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form> 
+    <div class="container">
+        <img src="<%= poster %>" alt="img" id="poster">
+        <div class="box">
+            <h1>
+                <%= title %>
+            </h1>
+            <p>Language : <%= language %>
+            </p>
+            <p>Release Date : <%= year %>
+            </p>
+            <p>Director : <%= director %>
+            </p>
+            <p>Actors : <%= actors %></p>
+            <p>Genre : <%= genre %></p>
+            <p id="plot">Plot : <%= plot %>
+            </p>
+            <p>IMDB Rating : <%= imdb %></p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+html{
+    background: url('https://wallpapercave.com/wp/uyeqTRM.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+*{
+    font-family: 'Baloo Thambi 2',cursive;
+    margin: 0;
+    padding: 0;
+    line-height: 2;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 80vh;
+    align-items: center;
+    color: black;
+    font-weight: bolder;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+
+form{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input{
+    width: 400px;
+    padding-left: 8px;
+}
+
+#year{
+    width: 70px;
+    margin: 20px;
+}
+
+#logo{
+    width: 122px;
+    height: 64px;
+    position: absolute;
+    right: 119px;
+}
+
+#poster{
+    margin: 10px;
+    z-index: 5;
+}
+
+button{
+    width: 40px;
+    padding: 0px 5px 0px 5px;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+#plot{
+    line-height: 1.3;
+}
