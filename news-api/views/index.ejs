@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body{
+        /* padding: 0px; */
+        margin: 0px;
+      }
+      a{
+        text-decoration: none;
+        color: white;
+      }
+      img{
+        width: 100%;
+        height: 100%;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        overflow: hidden;
+      }
+      #image {
+        width: 100%;
+        height: 180px;
+      }
+      img:hover{
+        filter: brightness(50%);
+      }
+      .articles {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: brown;
+        height: 25rem;
+        border-radius: 6px;
+      }
+      .articles:hover {
+        background-color: #3f2988;
+        cursor: pointer;
+        transform: scale(1.08);
+      }
+      .title {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        margin: 5%;
+      }
+      #box {
+        margin: 3px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        row-gap: 10px;
+        column-gap: 10px;
+      }
+      #container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background-color: black;
+        color: white;
+        padding: 10px;
+      }
+      #container form input, #container select, #container button{
+        margin: 10px;
+        padding: 8px;
+      }
+      .bookmark-btn{
+        cursor: pointer;
+      }
+      .icon{
+        color: red;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+      }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />  </head>
+  <body>
+    <div id="container">
+      <form action="/" method="post">
+        <input
+          type="text"
+          name="keyword"
+          id="keyword"
+          placeholder="Search by keyword"
+        />
+        <input type="date" name="fromDate" id="fromDate" placeholder="From"/>
+        <input type="date" name="toDate" id="toDate" placeholder="To"/>
+        <select name="sortBy" id="sortBy">
+          <option value="">Sort By</option>
+          <option value="relevancy">Relevancy</option>
+          <option value="popularity">Popularity</option>
+          <option value="publishedAt">PublishedAt</option>
+        </select>
+        <button type="submit" id="submit">Search</button>
+      </form>
+      <a href="/bookmarks"><button>show bookmarks</button></a>
+    </div>
+    <!-- <h1>What's Happening</h1> -->
+    <div id="box">
+      <% for(let i=0; i< data.length; i++){ %>
+      <a href="<%= data[i].url %>">
+        <div id="articles<%= i %>" class="articles">
+          <div id="image">
+            <img src="<%= data[i].urlToImage ? data[i].urlToImage : 'https://www.quantumbalancing.com/images/News2.gif' %>" class="images"/>
+            <span class="icon">
+              <i class="fas fa-bookmark bookmark-btn"></i>
+            </span>
+          </div>
+          <div class="title">
+            <h3><%= data[i].title %></h3>
+            <% if (data[i].description && data[i].title) { %>
+              <%= data[i].description.substring(0, 200 - data[i].title.length) %>....
+            <% } %>
+            <!-- <button class="bookmark-btn">Bookmark</button> -->
+          </div>
+        </div>
+      </a>
+      <% } %>
+    </div>
+    <script>
+      let bookmarkButtons = document.getElementsByClassName("bookmark-btn");
+      let articles = document.getElementsByClassName('articles');
+      let images = document.getElementsByClassName('images');
+
+      Array.from(bookmarkButtons).forEach(function (e, i) {
+        e.addEventListener("click", function (event) {
+          console.log('hello');
+          event.preventDefault();
+          bookmark(i);
+        });
+      });
+
+      function bookmark(i) {
+        fetch("/bookmark/" + i, { method: "GET" });
+      }
+
+      
+    </script>
+    <!-- <script src="script.js"></script> -->
+  </body>
+</html>

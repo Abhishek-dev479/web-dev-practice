@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 100px;
+            height: 100px;
+        }
+        .bookmark-data{
+            background-color: aqua;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <% for(let i=data.length-1; i>=0; i--){ %>
+        <div class="bookmark-data">
+        <a href="<%= data[i].url %>">
+        <div>
+            <img src="<%= data[i].urlToImage ? data[i].urlToImage : 'https://www.quantumbalancing.com/images/News2.gif' %>"/>
+            <div class="title">
+                <h3><%= data[i].title %></h3>
+                <!-- <p><%= data[i].description %></p> -->
+            </div>
+        </div>
+        </a>
+        <button class="removeButton">Remove</button>
+    </div>
+    <% } %>
+    <script>
+        let remove = document.getElementsByClassName('removeButton');
+        Array.from(remove).forEach((e, i) => {
+            e.addEventListener('click', function(event){
+                fetch('bookmarks/remove/'+(remove.length - i -1), {method: 'GET'})
+                .then((res) => {
+                    res.json();
+                })
+                .then((res) => {
+                    location.reload();
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
