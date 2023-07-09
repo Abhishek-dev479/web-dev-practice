@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes hit {
+            0%  {left: 190px; bottom: 75px;}
+            100% {left: 750px; bottom: 75px;}
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #box{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 50px;
+            font-size: 20px;
+            width: 400px;
+            height: 100px;
+        }
+        #box2{
+            margin-top: 90px;
+            position: relative;
+            width: 900px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        #box3{
+            width: 215px;
+            display: flex;
+            align-items: center;
+        }
+        #shooter{
+            width: 180px;
+            height: 180px;
+        }
+        .bullet{
+            left: 190px;
+            bottom: 75px;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+        }
+        .fire{
+            right: 123px;
+            bottom: 75px;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+        }
+        #monster{
+            margin-top: 10px;
+            width: 220px;
+            height: 220px;
+        }
+
+        .animation{
+            animation: hit 0.5s;
+        }
+
+        #box4{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #health{
+            width: 120px;
+            height: 17px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+    <div id="box2">
+        <div id="box3">
+            <img src="clipart-man-with-gun-16-removebg-preview.png" alt="image" id="shooter">
+        </div>
+        <div id="box4">
+            <div id="health"></div>
+            <img id="monster" src="https://3.bp.blogspot.com/--7Ey1Km_9UY/WMa_1wzKXpI/AAAAAAAAZRE/Qwwxqsw6cF86btVAv5ol5biI-336MFwhgCLcB/s1600/Gifs%2Banimados%2BMonstro%2B6.gif" alt="gif">        </div>
+        </div>
+    <script src="index.js"></script>
+</body>
+</html>
